@@ -1,0 +1,62 @@
+# pytorch_lightning==2.0.2
+seed_everything: true
+trainer:
+  accelerator: cpu
+  strategy: auto
+  devices: 1
+  num_nodes: 1
+  precision: 32-true
+  callbacks:
+  - class_path: mae.callbacks.mae_Callback
+    init_args:
+      to_wandb: false
+      save_samples_to: false
+  fast_dev_run: false
+  max_epochs: null
+  min_epochs: null
+  max_steps: -1
+  min_steps: null
+  max_time: null
+  limit_train_batches: null
+  limit_val_batches: null
+  limit_test_batches: null
+  limit_predict_batches: null
+  overfit_batches: 0.0
+  val_check_interval: null
+  check_val_every_n_epoch: 1
+  num_sanity_val_steps: null
+  log_every_n_steps: null
+  enable_checkpointing: null
+  enable_progress_bar: null
+  enable_model_summary: null
+  accumulate_grad_batches: 3
+  gradient_clip_val: null
+  gradient_clip_algorithm: null
+  deterministic: null
+  benchmark: null
+  inference_mode: true
+  use_distributed_sampler: true
+  profiler: null
+  detect_anomaly: false
+  barebones: false
+  plugins: null
+  sync_batchnorm: false
+  reload_dataloaders_every_n_epochs: 0
+  default_root_dir: null
+model:
+  model: mae_vit_base_patch16
+  img_size: 384
+  lr: 1e-4
+  weight_decay: 0.0
+data:
+  batch_size: 4
+  num_trainloader_workers: 1
+  num_validloader_workers: 1
+  input_size: 384
+  color_jitter: false
+  reprob: false
+  remode: false
+  recount: false
+  path2csv: /Users/robinsongarcia/projects/Algo360MaskedAutoEncoder_bkup/samples/meta.csv
+  aa: false
+ckpt_path: null
